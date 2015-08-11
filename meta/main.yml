@@ -23,7 +23,9 @@ ansigenome_info:
   travis: True
 
   synopsis: |
-    This role was written to be able to specify directories to synchronize via inventory variables. It is based on the Ansible’s [synchronize module]. If the [copy module] seems more suitable checkout the role [ypid.copy].
+    This role was written to be able to specify directories to synchronize via inventory variables.
+    It is based on Ansible’s [synchronize module].
+    If the [copy module] seems more suitable checkout the role [ypid.copy].
 
     [synchronize module]: https://docs.ansible.com/ansible/synchronize_module.html
     [copy module]: https://docs.ansible.com/ansible/copy_module.html

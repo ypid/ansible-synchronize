@@ -9,7 +9,9 @@
 
 Simple role to synchronize files/directories from the Ansible controller to target systems.
 
-This role was written to be able to specify directories to synchronize via inventory variables. It is based on the Ansible’s [synchronize module]. If the [copy module] seems more suitable checkout the role [ypid.copy].
+This role was written to be able to specify directories to synchronize via inventory variables.
+It is based on Ansible’s [synchronize module].
+If the [copy module] seems more suitable checkout the role [ypid.copy].
 
 [synchronize module]: https://docs.ansible.com/ansible/synchronize_module.html
 [copy module]: https://docs.ansible.com/ansible/copy_module.html
@@ -48,11 +50,6 @@ List of default variables available in the inventory:
     
     ## "Global" files/directories to synchronize
     synchronize_list: []
-    # synchronize_list:
-    #   - src: '/path/to/source/file'
-    #     dest: '/path/to/target/file'
-    #     create_parent_dirs: no
-    #     # state: 'absent'
     
     ## "Host group" files/directories to synchronize
     synchronize_group_list: []

@@ -13,11 +13,6 @@
 
 ## "Global" files/directories to synchronize
 synchronize_list: []
-# synchronize_list:
-#   - src: '/path/to/source/file'
-#     dest: '/path/to/target/file'
-#     create_parent_dirs: no
-#     # state: 'absent'
 
 ## "Host group" files/directories to synchronize
 synchronize_group_list: []
