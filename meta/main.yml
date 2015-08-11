@@ -1,0 +1,30 @@
+---
+
+galaxy_info:
+  author: Robin Schneider
+  description: Simple role to synchronize files/directories from the Ansible controller to target systems.
+  license: AGPLv3
+  platforms:
+  - name: Debian
+    versions:
+      - all
+  - name: Ubuntu
+    versions:
+      - all
+  categories:
+    - system
+  min_ansible_version: 1.8.4
+dependencies: []
+ansigenome_info:
+  github_url: "https://github.com/ypid/ansible-synchronize"
+  git_branch: "master"
+  galaxy_id: ""
+
+  travis: True
+
+  synopsis: |
+    This role was written to be able to specify directories to synchronize via inventory variables. It is based on the Ansible’s [synchronize module]. If the [copy module] seems more suitable checkout the role [ypid.copy].
+
+    [synchronize module]: https://docs.ansible.com/ansible/synchronize_module.html
+    [copy module]: https://docs.ansible.com/ansible/copy_module.html
+    [ypid.copy]: https://galaxy.ansible.com/list#/roles/4558

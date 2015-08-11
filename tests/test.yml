@@ -1,0 +1,16 @@
+---
+
+- hosts: localhost
+  remote_user: root
+  vars:
+    synchronize_list:
+      - src: '/etc/issue'
+        dest: '/var/backups/'
+        delete: yes
+      - src: '/etc/cron.d'
+        dest: '/var/backups/'
+        recursive: yes
+        delete: yes
+
+  roles:
+    - ansible-synchronize

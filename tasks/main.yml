@@ -1,0 +1,29 @@
+---
+
+- name: Synchronize files/directories from the Ansible controller to the target
+  synchronize:
+    src:             '{{ item.src }}'
+    dest:            '{{ item.dest }}'
+    archive:         '{{ item.archive         | default(omit) }}'
+    checksum:        '{{ item.checksum        | default(omit) }}'
+    compress:        '{{ item.compress        | default(omit) }}'
+    copy_links:      '{{ item.copy_links      | default(omit) }}'
+    delete:          '{{ item.delete          | default(omit) }}'
+    dest_port:       '{{ item.dest_port       | default(omit) }}'
+    dirs:            '{{ item.dirs            | default(omit) }}'
+    existing_only:   '{{ item.existing_only   | default(omit) }}'
+    group:           '{{ item.group           | default(omit) }}'
+    links:           '{{ item.links           | default(omit) }}'
+    mode:            '{{ item.mode            | default(omit) }}'
+    owner:           '{{ item.owner           | default(omit) }}'
+    perms:           '{{ item.perms           | default(omit) }}'
+    recursive:       '{{ item.recursive       | default(omit) }}'
+    rsync_opts:      '{{ item.rsync_opts      | default(omit) }}'
+    rsync_path:      '{{ item.rsync_path      | default(omit) }}'
+    rsync_timeout:   '{{ item.rsync_timeout   | default(omit) }}'
+    set_remote_user: '{{ item.set_remote_user | default(omit) }}'
+    times:           '{{ item.times           | default(omit) }}'
+  with_flattened:
+    - synchronize_list
+    - synchronize_group_list
+    - synchronize_host_list
