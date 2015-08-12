@@ -2,7 +2,7 @@
 
 [![Travis CI](http://img.shields.io/travis/ypid/ansible-synchronize.svg?style=flat)](http://travis-ci.org/ypid/ansible-synchronize)
 [![Ansible Galaxy](http://img.shields.io/badge/galaxy-ypid.synchronize-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/4749)
-[![Platforms](http://img.shields.io/badge/platforms-debian%20/%20ubuntu-lightgrey.svg?style=flat)](#)
+[![Platforms](http://img.shields.io/badge/platforms-debian%20/%20ubuntu-lightgrey.svg?style=flat)](https://galaxy.ansible.com/list#/roles/4749)
 [![GitHub Tags](https://img.shields.io/github/tag/ypid/ansible-synchronize.svg)](https://github.com/ypid/ansible-synchronize)
 [![GitHub Stars](https://img.shields.io/github/stars/ypid/ansible-synchronize.svg)](https://github.com/ypid/ansible-synchronize)
 
@@ -13,6 +13,10 @@ This role was written to be able to specify directories to synchronize via inven
 It is based on Ansible’s [synchronize module].
 If the [copy module] seems more suitable checkout the role [ypid.copy].
 
+### Features
+
+* Ensures that the target parent directory exists.
+
 [synchronize module]: https://docs.ansible.com/ansible/synchronize_module.html
 [copy module]: https://docs.ansible.com/ansible/copy_module.html
 [ypid.copy]: https://galaxy.ansible.com/list#/roles/4558
@@ -21,12 +25,16 @@ If the [copy module] seems more suitable checkout the role [ypid.copy].
 
 This role requires at least Ansible `v1.8.4`. To install it, run:
 
-    ansible-galaxy install ypid.synchronize
+```Shell
+ansible-galaxy install ypid.synchronize
+```
 
 To install via git, run either:
 
-    git clone https://github.com/ypid/ansible-synchronize.git ypid.synchronize
-    git submodule add https://github.com/ypid/ansible-synchronize.git ypid.synchronize
+```Shell
+git clone https://github.com/ypid/ansible-synchronize.git ypid.synchronize
+git submodule add https://github.com/ypid/ansible-synchronize.git ypid.synchronize
+```
 
 
 
@@ -35,29 +43,33 @@ To install via git, run either:
 
 List of default variables available in the inventory:
 
-    ---
-    
-    ## Checkout the documentation for the synchronize module.
-    
-    # synchronize_list:
-    #   - src: '/etc/issue'
-    #     dest: '/var/backups/'
-    #     delete: yes
-    #   - src: '/etc/cron.d'
-    #     dest: '/var/backups/'
-    #     recursive: yes
-    #     delete: yes
-    
-    ## "Global" files/directories to synchronize
-    synchronize_list: []
-    
-    ## "Host group" files/directories to synchronize
-    synchronize_group_list: []
-    
-    ## "Host" files/directories to synchronize
-    synchronize_host_list: []
+```YAML
+---
 
+## Checkout the documentation for the synchronize module.
 
+# synchronize_list:
+#   - src: '/etc/issue'
+#     dest: '/var/backups/'
+#     delete: yes
+#   - src: '/etc/cron.d'
+#     dest: '/var/backups/'
+#     recursive: yes
+#     delete: yes
+
+## "Global" files/directories to synchronize
+synchronize_list: []
+
+## "Host group" files/directories to synchronize
+synchronize_group_list: []
+
+## "Host" files/directories to synchronize
+synchronize_host_list: []
+```
+
+List of internal variables used by the role:
+
+    synchronize_list_combined
 
 
 ### Authors and license

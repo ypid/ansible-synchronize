@@ -1,5 +1,22 @@
 ---
 
+- name: Combine file lists
+  set_fact:
+    synchronize_list_combined: '{{ synchronize_list + synchronize_group_list + synchronize_host_list | default([]) }}'
+
+## Could use the file module, but this would require getting the dirname first.
+- name: Ensure that parent directories exist
+  shell: mkdir --parents $(dirname "{{ item.dest }}")
+  changed_when: False
+  when: (
+          item is mapping and (
+            (item.create_parent_dirs is defined and item.create_parent_dirs) or
+            item.create_parent_dirs is undefined or
+            not item.create_parent_dirs
+          )
+        )
+  with_items: synchronize_list_combined
+
 - name: Synchronize files/directories from the Ansible controller to the target
   synchronize:
     src:             '{{ item.src }}'
@@ -23,7 +40,4 @@
     rsync_timeout:   '{{ item.rsync_timeout   | default(omit) }}'
     set_remote_user: '{{ item.set_remote_user | default(omit) }}'
     times:           '{{ item.times           | default(omit) }}'
-  with_flattened:
-    - synchronize_list
-    - synchronize_group_list
-    - synchronize_host_list
+  with_items: synchronize_list_combined

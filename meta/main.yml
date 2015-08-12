@@ -27,6 +27,10 @@ ansigenome_info:
     It is based on Ansible’s [synchronize module].
     If the [copy module] seems more suitable checkout the role [ypid.copy].
 
+    ### Features
+
+    * Ensures that the target parent directory exists.
+
     [synchronize module]: https://docs.ansible.com/ansible/synchronize_module.html
     [copy module]: https://docs.ansible.com/ansible/copy_module.html
     [ypid.copy]: https://galaxy.ansible.com/list#/roles/4558
