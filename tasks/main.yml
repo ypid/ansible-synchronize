@@ -40,4 +40,5 @@
     rsync_timeout:   '{{ item.rsync_timeout   | default(omit) }}'
     set_remote_user: '{{ item.set_remote_user | default(omit) }}'
     times:           '{{ item.times           | default(omit) }}'
+    verify_host:     '{{ item.verify_host     | default(True) }}'
   with_items: synchronize_list_combined
